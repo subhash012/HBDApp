@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-cream: #f7f1e8;
+  --card: rgba(255, 252, 247, 0.76);
+  --text-main: #2b2324;
+  --accent: #7d3341;
+  --accent-soft: #b66575;
+  --border-soft: rgba(125, 51, 65, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-main);
+  background: var(--bg-cream);
+  background-image: radial-gradient(circle at 10% 5%, rgba(232, 198, 200, 0.35), transparent 36%),
+    radial-gradient(circle at 90% 10%, rgba(216, 193, 169, 0.3), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(182, 101, 117, 0.15), transparent 45%);
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.20'/%3E%3C/svg%3E");
+}
+
+#root {
+  position: relative;
+  z-index: 3;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8;
+}
+
+.editorial-card {
+  @apply rounded-3xl border border-[color:var(--border-soft)] bg-[color:var(--card)] p-6 shadow-soft backdrop-blur-md;
+}
+
+.title-font {
+  font-family: 'Playfair Display', serif;
+}
+
+.accent-button {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-transparent bg-burgundy px-6 py-3 text-sm font-semibold text-cream transition duration-300 hover:bg-mutedRose;
+}
+
+.ghost-button {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--border-soft)] bg-white/70 px-5 py-2.5 text-sm font-semibold text-ink transition duration-300 hover:bg-white;
+}
